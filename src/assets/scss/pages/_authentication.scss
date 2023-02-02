@@ -1,0 +1,84 @@
+.home-btn {
+  position: absolute;
+  top: 15px;
+  right: 25px;
+}
+
+.auth-full-bg {
+  background-color: rgba(85, 110, 230, 0.25) !important;
+  display: flex;
+
+  @media (min-width: 1200px) {
+    height: 100vh;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+  }
+
+  .bg-overlay {
+    background: url('../../images/bg-auth-overlay.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+.auth-full-page-content {
+  display: flex;
+
+  @media (min-width: 1200px) {
+    min-height: 100vh;
+  }
+}
+
+.auth-review-carousel {
+  &.owl-theme {
+    .owl-dots {
+      .owl-dot {
+        span {
+          background-color: white;
+        }
+        &.active,
+        &:hover {
+          span {
+            background-color: #556ee6;
+          }
+        }
+      }
+    }
+  }
+}
+
+.header-bg {
+  background-color: rgba(85, 110, 230, 0.25) !important;
+}
+
+.welcome-text {
+  color: #556ee6 !important;
+  font-size: 1.2rem;
+}
+
+.login-btn {
+  background: #556ee6 !important;
+  color: white !important;
+}
+
+.sign-in-text {
+  color: #677de8 !important;
+}
+
+.content-box {
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+}
+
+.forgot-text {
+  text-decoration: none;
+  color: gray;
+  margin: 2px;
+}

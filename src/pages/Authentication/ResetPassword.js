@@ -1,46 +1,55 @@
-import PropTypes from 'prop-types'
 import React from 'react'
-
 import {
   Row,
   Col,
-  CardBody,
+  Alert,
   Card,
+  CardBody,
   Container,
-  Form,
-  Input,
   FormFeedback,
-  Label
+  Input,
+  Label,
+  Form
 } from 'reactstrap'
-
-//redux
 
 import { Link } from 'react-router-dom'
 
-// Formik validation
+// Formik Validation
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 
 // import images
-
 import profile from '../../assets/images/profile-img.png'
 import logo from '../../assets/images/logo.svg'
-import { BiLockOpenAlt } from 'react-icons/bi'
 
-const Login = props => {
+const ResetPassword = props => {
   //meta title
-  document.title = 'Login | Demo Template - React Admin & Dashboard Template'
+  document.title =
+    'Forget Password | Demo Template - React Admin & Dashboard Template'
 
   const validation = useFormik({
     enableReinitialize: true,
 
     initialValues: {
-      email: '' || '',
-      password: '' || ''
+      password: '',
+      confirm_password: ''
     },
     validationSchema: Yup.object({
-      email: Yup.string().required('Please Enter Your Email'),
-      password: Yup.string().required('Please Enter Your Password')
+      password: Yup.string()
+        .min(8, 'Password must be at least 8 characters')
+        .matches(RegExp('(.*[a-z].*)'), 'At least lowercase letter')
+        .matches(RegExp('(.*[A-Z].*)'), 'At least uppercase letter')
+        .matches(RegExp('(.*[0-9].*)'), 'At least one number')
+        .required('New password is required'),
+      confirm_password: Yup.string()
+        .when('password', {
+          is: val => (val && val.length > 0 ? true : false),
+          then: Yup.string().oneOf(
+            [Yup.ref('password')],
+            'Both password need to be the same'
+          )
+        })
+        .required('Confirm Password Required')
     }),
     onSubmit: values => {}
   })
@@ -57,14 +66,12 @@ const Login = props => {
           <Row className='justify-content-center'>
             <Col md={8} lg={6} xl={5}>
               <Card className='overflow-hidden content-box'>
-                <div className='header-bg bg-soft'>
+                <div className='header-bg bg-soft bg-soft-primary'>
                   <Row>
                     <Col xs={7}>
                       <div className='text-primary p-4'>
-                        <h5 className='welcome-text'>Welcome Back !</h5>
-                        <p className='sign-in-text'>
-                          Sign in to continue to Demo Template.
-                        </p>
+                        <h5 className='welcome-text'>Create New Password !</h5>
+                        <p className='sign-in-text'>Write your new password.</p>
                       </div>
                     </Col>
                     <Col className='col-5 align-self-end'>
@@ -74,7 +81,7 @@ const Login = props => {
                 </div>
                 <CardBody className='pt-0'>
                   <div>
-                    <Link to='/' className='auth-logo-light'>
+                    <Link to='/'>
                       <div className='avatar-md profile-user-wid mb-4'>
                         <span className='avatar-title rounded-circle bg-light'>
                           <img
@@ -96,38 +103,16 @@ const Login = props => {
                         return false
                       }}
                     >
-                      <div className='mb-3'>
-                        <Label className='form-label'>Email</Label>
-                        <Input
-                          name='email'
-                          className='form-control'
-                          placeholder='Enter email'
-                          type='email'
-                          onChange={validation.handleChange}
-                          onBlur={validation.handleBlur}
-                          value={validation.values.email || ''}
-                          invalid={
-                            validation.touched.email && validation.errors.email
-                              ? true
-                              : false
-                          }
-                        />
-                        {validation.touched.email && validation.errors.email ? (
-                          <FormFeedback type='invalid'>
-                            {validation.errors.email}
-                          </FormFeedback>
-                        ) : null}
-                      </div>
-
-                      <div className='mb-3'>
-                        <Label className='form-label'>Password</Label>
+                      <div className='mb-1'>
+                        <Label className='form-label'>New Password</Label>
                         <Input
                           name='password'
-                          value={validation.values.password || ''}
+                          className='form-control'
+                          placeholder='Enter new password'
                           type='password'
-                          placeholder='Enter Password'
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
+                          value={validation.values.password || ''}
                           invalid={
                             validation.touched.password &&
                             validation.errors.password
@@ -142,55 +127,58 @@ const Login = props => {
                           </FormFeedback>
                         ) : null}
                       </div>
-
-                      <div className='form-check'>
-                        <input
-                          type='checkbox'
-                          className='form-check-input'
-                          id='customControlInline'
+                      <div id='passwordInput' className='form-text m-0'>
+                        Must be at least 8 characters.
+                      </div>
+                      <div className='mb-1 mt-3'>
+                        <Label className='form-label'>Confirm Password</Label>
+                        <Input
+                          name='confirm_password'
+                          className='form-control'
+                          placeholder='Confirm password'
+                          type='password'
+                          onChange={validation.handleChange}
+                          onBlur={validation.handleBlur}
+                          value={validation.values.confirm_password || ''}
+                          invalid={
+                            validation.touched.confirm_password && validation.errors.confirm_password
+                              ? true
+                              : false
+                          }
                         />
-                        <label
-                          className='form-check-label'
-                          htmlFor='customControlInline'
-                        >
-                          Remember me
-                        </label>
+                        {validation.touched.confirm_password && validation.errors.confirm_password ? (
+                          <FormFeedback type='invalid'>
+                            {validation.errors.confirm_password}
+                          </FormFeedback>
+                        ) : null}
                       </div>
-
-                      <div className='mt-3 d-grid'>
-                        <button
-                          className='btn login-btn btn-block'
-                          type='submit'
-                        >
-                          Log In
-                        </button>
-                      </div>
-
-                      <div className='mt-4 text-center'>
-                        <Link to='/forgot-password' className='forgot-text'>
-                          {/* <BiLockOpenAlt className="mr-2"/> */}
-                          Forgot your password?
-                        </Link>
-                      </div>
+                      <Row>
+                        <Col className='mt-4 d-grid'>
+                          <button
+                            className='btn login-btn btn-block'
+                            type='submit'
+                          >
+                            Reset
+                          </button>
+                        </Col>
+                      </Row>
                     </Form>
                   </div>
                 </CardBody>
               </Card>
-              <div className='mt-5 text-center forgot-text'>
-                <p>
-                  Don&#39;t have an account ?{' '}
+              <div className='mt-5 text-center '>
+                <p className='forgot-text'>
+                  Go back to{' '}
                   <Link
-                    to='/register'
-                    className='fw-medium text-primary forgot-text color-primary f-5'
+                    to='login'
+                    className='font-weight-medium text-primary forgot-text'
                   >
-                    {' '}
-                    Signup now{' '}
+                    Login
                   </Link>{' '}
                 </p>
-                <p>
+                <p className='forgot-text'>
                   © {new Date().getFullYear()} Demo Template. Crafted with{' '}
-                  <i className='mdi mdi-heart text-danger forgot-text' /> by
-                  Demo
+                  <i className='mdi mdi-heart text-danger' /> by Demo
                 </p>
               </div>
             </Col>
@@ -201,4 +189,4 @@ const Login = props => {
   )
 }
 
-export default Login
+export default ResetPassword

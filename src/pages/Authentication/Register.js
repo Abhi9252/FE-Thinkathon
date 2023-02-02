@@ -1,45 +1,42 @@
-import PropTypes from 'prop-types'
-import React from 'react'
-
+import React, { useEffect } from 'react'
 import {
   Row,
   Col,
   CardBody,
   Card,
+  Alert,
   Container,
-  Form,
   Input,
-  FormFeedback,
-  Label
+  Label,
+  Form,
+  FormFeedback
 } from 'reactstrap'
 
-//redux
-
-import { Link } from 'react-router-dom'
-
-// Formik validation
+// Formik Validation
 import * as Yup from 'yup'
 import { useFormik } from 'formik'
 
-// import images
+import { Link } from 'react-router-dom'
 
+// import images
 import profile from '../../assets/images/profile-img.png'
 import logo from '../../assets/images/logo.svg'
-import { BiLockOpenAlt } from 'react-icons/bi'
 
-const Login = props => {
+const Register = props => {
   //meta title
-  document.title = 'Login | Demo Template - React Admin & Dashboard Template'
+  document.title = 'Register | Demo Template - React Admin & Dashboard Template'
 
   const validation = useFormik({
     enableReinitialize: true,
 
     initialValues: {
-      email: '' || '',
-      password: '' || ''
+      email: '',
+      username: '',
+      password: ''
     },
     validationSchema: Yup.object({
       email: Yup.string().required('Please Enter Your Email'),
+      username: Yup.string().required('Please Enter Your Username'),
       password: Yup.string().required('Please Enter Your Password')
     }),
     onSubmit: values => {}
@@ -59,11 +56,11 @@ const Login = props => {
               <Card className='overflow-hidden content-box'>
                 <div className='header-bg bg-soft'>
                   <Row>
-                    <Col xs={7}>
+                    <Col className='col-7'>
                       <div className='text-primary p-4'>
-                        <h5 className='welcome-text'>Welcome Back !</h5>
+                        <h5 className='welcome-text'>Free Register</h5>
                         <p className='sign-in-text'>
-                          Sign in to continue to Demo Template.
+                          Get your free Demo Template account now.
                         </p>
                       </div>
                     </Col>
@@ -74,7 +71,7 @@ const Login = props => {
                 </div>
                 <CardBody className='pt-0'>
                   <div>
-                    <Link to='/' className='auth-logo-light'>
+                    <Link to='/'>
                       <div className='avatar-md profile-user-wid mb-4'>
                         <span className='avatar-title rounded-circle bg-light'>
                           <img
@@ -99,6 +96,7 @@ const Login = props => {
                       <div className='mb-3'>
                         <Label className='form-label'>Email</Label>
                         <Input
+                          id='email'
                           name='email'
                           className='form-control'
                           placeholder='Enter email'
@@ -120,14 +118,37 @@ const Login = props => {
                       </div>
 
                       <div className='mb-3'>
+                        <Label className='form-label'>Username</Label>
+                        <Input
+                          name='username'
+                          type='text'
+                          placeholder='Enter username'
+                          onChange={validation.handleChange}
+                          onBlur={validation.handleBlur}
+                          value={validation.values.username || ''}
+                          invalid={
+                            validation.touched.username &&
+                            validation.errors.username
+                              ? true
+                              : false
+                          }
+                        />
+                        {validation.touched.username &&
+                        validation.errors.username ? (
+                          <FormFeedback type='invalid'>
+                            {validation.errors.username}
+                          </FormFeedback>
+                        ) : null}
+                      </div>
+                      <div className='mb-3'>
                         <Label className='form-label'>Password</Label>
                         <Input
                           name='password'
-                          value={validation.values.password || ''}
                           type='password'
                           placeholder='Enter Password'
                           onChange={validation.handleChange}
                           onBlur={validation.handleBlur}
+                          value={validation.values.password || ''}
                           invalid={
                             validation.touched.password &&
                             validation.errors.password
@@ -143,34 +164,22 @@ const Login = props => {
                         ) : null}
                       </div>
 
-                      <div className='form-check'>
-                        <input
-                          type='checkbox'
-                          className='form-check-input'
-                          id='customControlInline'
-                        />
-                        <label
-                          className='form-check-label'
-                          htmlFor='customControlInline'
-                        >
-                          Remember me
-                        </label>
-                      </div>
-
-                      <div className='mt-3 d-grid'>
+                      <div className='mt-5 d-grid'>
                         <button
-                          className='btn login-btn btn-block'
+                          className='btn login-btn btn-block '
                           type='submit'
                         >
-                          Log In
+                          Register
                         </button>
                       </div>
 
                       <div className='mt-4 text-center'>
-                        <Link to='/forgot-password' className='forgot-text'>
-                          {/* <BiLockOpenAlt className="mr-2"/> */}
-                          Forgot your password?
-                        </Link>
+                        <p className='mb-0 forgot-text'>
+                          By registering you agree to the Demo Template{' '}
+                          <Link to='#' className='text-primary forgot-text'>
+                            Terms of Use
+                          </Link>
+                        </p>
                       </div>
                     </Form>
                   </div>
@@ -178,19 +187,18 @@ const Login = props => {
               </Card>
               <div className='mt-5 text-center forgot-text'>
                 <p>
-                  Don&#39;t have an account ?{' '}
+                  Already have an account ?{' '}
                   <Link
-                    to='/register'
-                    className='fw-medium text-primary forgot-text color-primary f-5'
+                    to='/login'
+                    className='font-weight-medium text-primary forgot-text'
                   >
                     {' '}
-                    Signup now{' '}
+                    Login
                   </Link>{' '}
                 </p>
-                <p>
+                <p className='forgot-text'>
                   © {new Date().getFullYear()} Demo Template. Crafted with{' '}
-                  <i className='mdi mdi-heart text-danger forgot-text' /> by
-                  Demo
+                  <i className='mdi mdi-heart text-danger' /> by Demo
                 </p>
               </div>
             </Col>
@@ -201,4 +209,4 @@ const Login = props => {
   )
 }
 
-export default Login
+export default Register
