@@ -39,7 +39,7 @@ const NavData = () => {
       label: 'Schedule',
       icon: <BiAtom />,
       link: '/home',
-      click: function (e) {
+      click: function () {
         // e.preventDefault()
         setIsSchedule(!isSchedule)
         setIscurrentState('Schedule')
@@ -65,7 +65,7 @@ const NavData = () => {
       label: 'Staff',
       icon: <AiFillBug />,
       link: '/PM/staff',
-      click: function (e) {
+      click: function () {
         setIsSchedule(!isStaff)
         setIscurrentState('Staff')
       },
@@ -76,7 +76,7 @@ const NavData = () => {
       label: 'Invoices',
       icon: <AiFillBuild />,
       link: '/PM/Invoices',
-      click: function (e) {
+      click: function () {
         setIsSchedule(!isInvoices)
         setIscurrentState('Invoices')
       },
@@ -87,7 +87,7 @@ const NavData = () => {
       label: 'Account',
       icon: <AiFillDropboxCircle />,
       link: '/PM/settings',
-      click: function (e) {
+      click: function () {
         setIsSchedule(!isAccount)
         setIscurrentState('Account')
       },

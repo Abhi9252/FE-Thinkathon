@@ -1,6 +1,6 @@
 import React from 'react'
 import { Col, Container, Row } from 'reactstrap'
-import { FcLike } from "react-icons/fc";
+import { FcLike } from 'react-icons/fc'
 
 const Footer = () => {
   return (

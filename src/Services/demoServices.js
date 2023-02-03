@@ -1,14 +1,13 @@
 import { customHeaders } from '.'
 import { POST_LOGIN_CRED } from './endpoint'
+import axios from 'axios'
 
 export const demoServices = {
-  getItSystems: () =>
-    fetch(POST_LOGIN_CRED.endpoint, {
-      method: POST_LOGIN_CRED.method,
-      headers: customHeaders(token)
-    })
+  postItSystems: data =>
+    axios
+      .post(POST_LOGIN_CRED.endpoint, data)
       .then(resp => {
-        return resp.json()
+        console.log(resp)
       })
       .catch(err => console.log(err))
 }

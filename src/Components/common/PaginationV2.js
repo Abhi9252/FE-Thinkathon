@@ -1,14 +1,15 @@
-import { Button, Col, Input, Row } from 'reactstrap'
+import React from 'react'
+import { Button, Col, Row } from 'reactstrap'
 
-const PaginationV2 = ({
-  previousDisabled,
-  previousPageCall,
-  currentPage,
-  totalPageCount,
-  nextDisabled,
-  nextPageCalls,
-  onPageInputChange
-}) => {
+const PaginationV2 = props => {
+  const {
+    previousDisabled,
+    previousPageCall,
+    currentPage,
+    totalPageCount,
+    nextDisabled,
+    nextPageCalls
+  } = props
   return (
     <Row className='justify-content-md-end justify-content-center align-items-center p-2'>
       <Col className='col-md-auto'>
@@ -29,13 +30,13 @@ const PaginationV2 = ({
         </b>
       </Col>
       {/* <Col className='col-md-auto'>
-        <Input
-          type='number'
-          style={{ width: 40 }}
-          defaultValue={currentPage}
-          onChange={onPageInputChange}
-        />
-      </Col> */}
+              <Input
+                type='number'
+                style={{ width: 40 }}
+                defaultValue={currentPage}
+                onChange={onPageInputChange}
+              />
+            </Col> */}
 
       <Col className='col-md-auto'>
         <div className='d-flex gap-1'>

@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import {
   Row,
   Col,
   CardBody,
   Card,
-  Alert,
   Container,
   Input,
   Label,
@@ -22,7 +21,7 @@ import { Link } from 'react-router-dom'
 import profile from '../../assets/images/profile-img.png'
 import logo from '../../assets/images/logo.svg'
 
-const Register = props => {
+const Register = () => {
   //meta title
   document.title = 'Register | Demo Template - React Admin & Dashboard Template'
 
@@ -39,7 +38,7 @@ const Register = props => {
       username: Yup.string().required('Please Enter Your Username'),
       password: Yup.string().required('Please Enter Your Password')
     }),
-    onSubmit: values => {}
+    onSubmit: () => {}
   })
 
   return (
@@ -135,10 +134,10 @@ const Register = props => {
                         />
                         {validation.touched.username &&
                         validation.errors.username ? (
-                          <FormFeedback type='invalid'>
-                            {validation.errors.username}
-                          </FormFeedback>
-                        ) : null}
+                            <FormFeedback type='invalid'>
+                              {validation.errors.username}
+                            </FormFeedback>
+                          ) : null}
                       </div>
                       <div className='mb-3'>
                         <Label className='form-label'>Password</Label>
@@ -158,16 +157,17 @@ const Register = props => {
                         />
                         {validation.touched.password &&
                         validation.errors.password ? (
-                          <FormFeedback type='invalid'>
-                            {validation.errors.password}
-                          </FormFeedback>
-                        ) : null}
+                            <FormFeedback type='invalid'>
+                              {validation.errors.password}
+                            </FormFeedback>
+                          ) : null}
                       </div>
 
                       <div className='mt-5 d-grid'>
                         <button
                           className='btn login-btn btn-block '
                           type='submit'
+                          onClick={() => alert('Registration Successfully!')}
                         >
                           Register
                         </button>

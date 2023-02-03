@@ -2,7 +2,6 @@ import React from 'react'
 import {
   Row,
   Col,
-  Alert,
   Card,
   CardBody,
   Container,
@@ -22,7 +21,7 @@ import { useFormik } from 'formik'
 import profile from '../../assets/images/profile-img.png'
 import logo from '../../assets/images/logo.svg'
 
-const ResetPassword = props => {
+const ResetPassword = () => {
   //meta title
   document.title =
     'Forget Password | Demo Template - React Admin & Dashboard Template'
@@ -51,7 +50,7 @@ const ResetPassword = props => {
         })
         .required('Confirm Password Required')
     }),
-    onSubmit: values => {}
+    onSubmit: () => {}
   })
 
   return (
@@ -122,10 +121,10 @@ const ResetPassword = props => {
                         />
                         {validation.touched.password &&
                         validation.errors.password ? (
-                          <FormFeedback type='invalid'>
-                            {validation.errors.password}
-                          </FormFeedback>
-                        ) : null}
+                            <FormFeedback type='invalid'>
+                              {validation.errors.password}
+                            </FormFeedback>
+                          ) : null}
                       </div>
                       <div id='passwordInput' className='form-text m-0'>
                         Must be at least 8 characters.

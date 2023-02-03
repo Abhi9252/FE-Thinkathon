@@ -18,7 +18,7 @@ import {
 } from 'reactstrap'
 import { Link } from 'react-router-dom'
 
-import BreadCrumb from '../../Components/common/BreadCrumb'
+// import BreadCrumb from '../../Components/common/BreadCrumb'
 import PreviewCardHeader from '../../Components/common/PreviewCardHeader'
 
 const UiModals = () => {
@@ -198,7 +198,7 @@ const UiModals = () => {
     <React.Fragment>
       <div className='page-content'>
         <Container fluid>
-          <BreadCrumb title='Modals' pageTitle='Base UI' />
+          {/* <BreadCrumb title='Modals' pageTitle='Base UI' /> */}
           <Row>
             <Col xxl={6}>
               <Card>
@@ -668,16 +668,16 @@ const UiModals = () => {
             his brown belly, slightly domed and divided by arches into stiff
             sections.
           </p>
-          <p className='text-muted'>
+          {/* <p className='text-muted'>
             The bedding was hardly able to cover it and seemed ready to slide
             off any moment. His many legs, pitifully thin compared with the size
             of the rest of him, waved about helplessly as he looked. "What's
             happened to me?" he thought.
-          </p>
-          <p className='text-muted'>
+          </p> */}
+          {/* <p className='text-muted'>
             It wasn't a dream. His room, a proper human room although a little
             too small, lay peacefully between its four familiar walls.
-          </p>
+          </p> */}
         </ModalBody>
         <div className='modal-footer'>
           <Button
@@ -713,7 +713,7 @@ const UiModals = () => {
             <p className='text-muted mb-4'>
               {' '}
               The transfer was not successfully received by us. the email of the
-              recipient wasn't correct.
+              recipient wasnt correct.
             </p>
             <div className='hstack gap-2 justify-content-center'>
               <Button color='light' onClick={() => setmodal_center(false)}>
@@ -874,11 +874,11 @@ const UiModals = () => {
           ></lord-icon>
 
           <div className='mt-4'>
-            <h4 className='mb-3'>You've made it!</h4>
+            {/* <h4 className='mb-3'>You've made it!</h4> */}
             <p className='text-muted mb-4'>
               {' '}
               The transfer was not successfully received by us. the email of the
-              recipient wasn't correct.
+              recipient wasn&apos;t correct.
             </p>
             <div className='hstack gap-2 justify-content-center'>
               <Link
@@ -929,7 +929,7 @@ const UiModals = () => {
             <p className='text-muted'>
               {' '}
               The transfer was not successfully received by us. the email of the
-              recipient wasn't correct.
+              recipient wasn&apos;t correct.
             </p>
 
             <Button
@@ -1017,7 +1017,7 @@ const UiModals = () => {
             >
               Popover on Click
             </Link>{' '}
-            you do every day. So let's get started. First, some common types of
+            you do every day. So let&apos;s get started. First, some common types of
             fonts and what you need to know about them triggers a popover on
             click.
           </p>
@@ -1025,13 +1025,13 @@ const UiModals = () => {
             <PopoverHeader> Common Types of Fonts </PopoverHeader>
             <PopoverBody>
               {' '}
-              They're a good choice for more traditional projects.{' '}
+              They&apos;re a good choice for more traditional projects.{' '}
             </PopoverBody>
           </UncontrolledPopover>
 
           <h5 className='fs-16'>Tooltips in a Modal</h5>
           <p className='text-muted'>
-            Opposites attract, and that’s a fact. It’s in our{' '}
+            Opposites attract, and that&apos;s a fact. It&apos;s in our{' '}
             <Link
               to='#'
               className='tooltip-test text-decoration-underline fw-medium'
@@ -1039,7 +1039,7 @@ const UiModals = () => {
             >
               graphic design
             </Link>{' '}
-            to be interested in the unusual, and that’s why using{' '}
+            to be interested in the unusual, and that&apos;s why using{' '}
             <Link
               to='#'
               className='tooltip-test text-decoration-underline'
@@ -1093,7 +1093,7 @@ const UiModals = () => {
             </div>
             <div className='flex-grow-1 ms-2'>
               <p className='text-muted mb-0'>
-                Raw denim you probably haven't heard of them jean shorts Austin.
+                Raw denim you probably haven&apos;t heard of them jean shorts Austin.
                 Nesciunt tofu stumptown aliqua, retro synth master cleanse.
               </p>
             </div>
@@ -1141,7 +1141,7 @@ const UiModals = () => {
             <div className='flex-grow-1 ms-2 '>
               <p className='text-muted mb-0'>
                 You've probably heard that opposites attract. The same is true
-                for fonts. Don't be afraid to combine font styles that are
+                for fonts. Don&apos;t be afraid to combine font styles that are
                 different but complementary, like sans serif with serif, short
                 with tall, or decorative with simple. Qui photo booth
                 letterpress, commodo enim craft beer mlkshk aliquip jean shorts
@@ -1168,10 +1168,10 @@ const UiModals = () => {
             </div>
             <div className='flex-grow-1 ms-2 '>
               <p className='text-muted mb-0'>
-                Opposites attract, and that’s a fact. It’s in our nature to be
-                interested in the unusual, and that’s why using contrasting
-                colors in Graphic Design is a must. It’s eye-catching, it makes
-                a statement, it’s impressive graphic design. Increase or
+                Opposites attract, and that&apos;s a fact. It&apos;s in our nature to be
+                interested in the unusual, and that&apos;s why using contrasting
+                colors in Graphic Design is a must. It&apos;s eye-catching, it makes
+                a statement, it&apos;s impressive graphic design. Increase or
                 decrease the letter spacing depending.
               </p>
             </div>
@@ -1196,7 +1196,7 @@ const UiModals = () => {
               <p className='text-muted mb-0'>
                 Just like in the image where we talked about using multiple
                 fonts, you can see that the background in this graphic design is
-                blurred. Whenever you put text on top of an image, it’s
+                blurred. Whenever you put text on top of an image, it&apos;s
                 important that your viewers can understand.
               </p>
             </div>
@@ -1249,7 +1249,7 @@ const UiModals = () => {
             </div>
             <div className='flex-grow-1 ms-2'>
               <p className='text-muted mb-0'>
-                Raw denim you probably haven't heard of them jean shorts Austin.
+                Raw denim you probably haven&apos;t heard of them jean shorts Austin.
                 Nesciunt tofu stumptown aliqua, retro synth master cleanse.
               </p>
             </div>

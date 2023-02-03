@@ -2,9 +2,6 @@ import React, { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import SpinnerComponent from '../Components/common/Spinner'
 
-//Layouts
-import VerticalLayout from '../Layouts/index'
-
 //routes
 import { AUTH_PROTECTED_ROUTES, PUBLIC_ROUTES } from './allRoutes'
 import { AuthProtected } from './authProtected'
@@ -31,7 +28,7 @@ const Index = () => {
         })}
 
         {AUTH_PROTECTED_ROUTES.map((route, idx) => {
-          const { path, component, ...rest } = route;
+          const { path, component, ...rest } = route
           return (
             <Route
               path={path}

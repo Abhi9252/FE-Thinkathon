@@ -1,9 +1,7 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 import {
   Row,
   Col,
-  Alert,
   Card,
   CardBody,
   Container,
@@ -23,7 +21,7 @@ import { useFormik } from 'formik'
 import profile from '../../assets/images/profile-img.png'
 import logo from '../../assets/images/logo.svg'
 
-const ForgetPasswordPage = props => {
+const ForgetPasswordPage = () => {
   //meta title
   document.title =
     'Forget Password | Demo Template - React Admin & Dashboard Template'
@@ -37,7 +35,7 @@ const ForgetPasswordPage = props => {
     validationSchema: Yup.object({
       email: Yup.string().required('Please Enter Your Email')
     }),
-    onSubmit: values => {}
+    onSubmit: () => {}
   })
 
   return (
@@ -123,6 +121,7 @@ const ForgetPasswordPage = props => {
                           <button
                             className='btn login-btn btn-block'
                             type='submit'
+                            onClick={() => alert('Link has been successfully send on your email!')}
                           >
                             Reset
                           </button>

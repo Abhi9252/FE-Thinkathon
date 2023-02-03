@@ -1,13 +1,13 @@
-import { Navigate, Route } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import React from 'react'
 
-const FullPageRoute = (props) => {
-    const token = localStorage.getItem('token')
-    if (token) {
-      return <Navigate to={{ pathname: '/home' }} />
-    }
-    
-    return  <>{ props.children }</>
+const FullPageRoute = props => {
+  const token = localStorage.getItem('token')
+  if (token) {
+    return <Navigate to={{ pathname: '/home' }} />
+  }
+
+  return <>{props.children}</>
 }
 
 export { FullPageRoute }

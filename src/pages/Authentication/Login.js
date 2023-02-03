@@ -12,8 +12,6 @@ import {
   Label
 } from 'reactstrap'
 
-//redux
-
 import { Link } from 'react-router-dom'
 
 // Formik validation
@@ -24,9 +22,9 @@ import { useFormik } from 'formik'
 
 import profile from '../../assets/images/profile-img.png'
 import logo from '../../assets/images/logo.svg'
-import { BiLockOpenAlt } from 'react-icons/bi'
+// import { BiLockOpenAlt } from 'react-icons/bi'
 
-const Login = props => {
+const Login = () => {
   //meta title
   document.title = 'Login | Demo Template - React Admin & Dashboard Template'
 
@@ -41,7 +39,7 @@ const Login = props => {
       email: Yup.string().required('Please Enter Your Email'),
       password: Yup.string().required('Please Enter Your Password')
     }),
-    onSubmit: values => {}
+    onSubmit: () => {}
   })
 
   return (
@@ -136,10 +134,10 @@ const Login = props => {
                         />
                         {validation.touched.password &&
                         validation.errors.password ? (
-                          <FormFeedback type='invalid'>
-                            {validation.errors.password}
-                          </FormFeedback>
-                        ) : null}
+                            <FormFeedback type='invalid'>
+                              {validation.errors.password}
+                            </FormFeedback>
+                          ) : null}
                       </div>
 
                       <div className='form-check'>
@@ -160,6 +158,7 @@ const Login = props => {
                         <button
                           className='btn login-btn btn-block'
                           type='submit'
+                          onClick={() => alert('Login successfully')}
                         >
                           Log In
                         </button>

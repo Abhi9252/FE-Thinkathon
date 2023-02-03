@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import {
   Dropdown,
   DropdownItem,
@@ -10,7 +10,7 @@ import {
 import avatar1 from '../../assets/images/user.png'
 
 const ProfileDropdown = () => {
-  const [userName, setUserName] = useState('Anna Addam')
+  const [userName] = useState('Anna Addam')
 
   //Dropdown Toggle
   const [isProfileDropdown, setIsProfileDropdown] = useState(false)

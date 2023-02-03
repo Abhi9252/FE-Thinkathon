@@ -1,6 +1,6 @@
 import React from 'react'
 
-const SpinnerComponent = props => {
+const SpinnerComponent = () => {
   return <div id='cover-spin'></div>
 }
 
