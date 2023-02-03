@@ -4,7 +4,7 @@ import React from 'react'
 const FullPageRoute = (props) => {
     const token = localStorage.getItem('token')
     if (token) {
-      return <Navigate to={{ pathname: '/' }} />
+      return <Navigate to={{ pathname: '/home' }} />
     }
     
     return  <>{ props.children }</>

@@ -26,7 +26,6 @@ const Index = () => {
                   </Suspense>
                 </FullPageRoute>
               }
-              // exact={true}
             />
           )
         })}
