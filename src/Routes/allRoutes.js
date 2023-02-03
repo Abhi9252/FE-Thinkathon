@@ -7,12 +7,13 @@ const LazyHome = lazy(() => import('../pages/Home'))
 const LazyRegister = lazy(() => import('../pages/Authentication/Register'))
 const LazyForgetPw = lazy(() => import('../pages/Authentication/ForgetPassword'))
 const LazyResetPassword = lazy(() => import('../pages/Authentication/ResetPassword'))
+const LazyPage404 = lazy(() => import('../Components/common/pages-404'))
 
 const AUTH_PROTECTED_ROUTES = [
   { path: '/cart', component: <LazyCart />, roles: [1] },
   { path: '/home', component: <LazyHome /> },
   { path: '/', component: <Navigate to='/home' /> },
-  { path: '*', component: <Navigate to='/home' /> }
+  { path: '*', component: <LazyPage404/> }
 ]
 
 const PUBLIC_ROUTES = [
