@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types'
 import React from 'react'
 
 import {
@@ -167,7 +166,7 @@ const Login = props => {
                       </div>
 
                       <div className='mt-4 text-center'>
-                        <Link to='/forgot-password' className='forgot-text'>
+                        <Link to='/forget-password' className='forgot-text'>
                           {/* <BiLockOpenAlt className="mr-2"/> */}
                           Forgot your password?
                         </Link>

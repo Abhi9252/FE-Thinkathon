@@ -9,10 +9,8 @@ const LazyForgetPw = lazy(() => import('../pages/Authentication/ForgetPassword')
 const LazyResetPassword = lazy(() => import('../pages/Authentication/ResetPassword'))
 
 const AUTH_PROTECTED_ROUTES = [
-  { path: '/cart', component: <LazyCart /> },
+  { path: '/cart', component: <LazyCart />, roles: [1] },
   { path: '/home', component: <LazyHome /> },
-
-
   { path: '/', component: <Navigate to='/home' /> },
   { path: '*', component: <Navigate to='/home' /> }
 ]
@@ -22,9 +20,7 @@ const PUBLIC_ROUTES = [
   { path: '/register', component: <LazyRegister /> },
   { path: '/forget-password', component: <LazyForgetPw /> },
   { path: '/reset-password', component: <LazyResetPassword /> },
-
-
-  { path: '/', component: <Navigate to='/login' /> }
+  { path: '/', component: <Navigate to='/home' /> }
 ]
 
 export { AUTH_PROTECTED_ROUTES, PUBLIC_ROUTES }
